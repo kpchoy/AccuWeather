@@ -36,11 +36,19 @@ $(document).ready(function() {
     $.getJSON(link)
       .done(function(data) {
       // console.log(data);
-         
+        //  debugger
         var conditions = data[0];
         var temp = conditions.Temperature.Imperial;
         let html = conditions.WeatherText + ", " + temp.Value + " " + temp.Unit;
         $("#currentConditions").html(html);
+
+        let iconNum = data[0].WeatherIcon;
+        if (iconNum < 10) {
+          iconNum = "0" + iconNum;
+        }
+        let icon = "https://apidev.accuweather.com/developers/Media/Default"
+          + "/WeatherIcons/" + iconNum + "-s.png";
+        $("#weather-img").attr("src", icon);
       })
       .fail(function(textStatus, error) {
         let html = "No info at this time";
