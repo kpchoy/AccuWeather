@@ -10,6 +10,7 @@ $(document).ready(function() {
 
     $.getJSON(link)
       .done(function(data) {
+        // debugger;
         let locationKey = data[0].Key;
         let state = data[0].AdministrativeArea.EnglishName;
         let city = data[0].EnglishName;
@@ -37,16 +38,20 @@ $(document).ready(function() {
       // console.log(data);
         //  debugger
         var conditions = data[0];
-        var temp = conditions.Temperature.Imperial;
-        let html = conditions.WeatherText + ", " + temp.Value + " " + temp.Unit;
-        $("#current-conditions").html(html);
+        var temp = conditions.Temperature.Imperial.Value + " " 
+          + conditions.Temperature.Imperial.Unit;
+        let html = conditions.WeatherText;
+        $("#current-temp").html(temp);
+        $("#current-phrase").html(html);
 
         let iconNum = data[0].WeatherIcon;
         let icon = iconLinkGen(iconNum);
         $("#weather-img").attr("src", icon);
+        
       })
       .fail(function(textStatus, error) {
         let html = "No info at this time";
+       
         $("#current-conditions").html(html);
       });
 
@@ -99,12 +104,12 @@ $(document).ready(function() {
 
   // Production 
   // run with live server
-  var zip = getParameterByName("zip_code");
-  getLocationKey(zip);
+  // var zip = getParameterByName("zip_code");
+  // getLocationKey(zip);
 
   // Test parameters to try not to overload 50 calls
-  // var zip = '94066';
-  // getLocationKey(zip);
+  var zip = '94016';
+  getLocationKey(zip);
 });
 
 function iconLinkGen(iconNum) {
