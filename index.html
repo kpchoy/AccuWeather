@@ -12,44 +12,64 @@
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
   </head>
   <body>
-    <h1>Movable Ink: Weather App</h1>
+    <div class="main">
 
-    
-    <div> 
-      <h2>Local Weather Forcast</h2>
-      <p>Date: <span id="todays-date"></span></p> 
-      <p>Location:</p>
-      <span id="city-name"></span>
+      <h1>Movable Ink: Weather App</h1>
+      <div class="border-line"></div>
+   
+      <p>This app employs AccuWeather's API</p>
+      
+      <div> 
+        <h2>Local Weather Forcast</h2>
+        <p>Date: <span id="todays-date"></span></p> 
+        <p>Location: <span id="city-name"></span></p>
+        
+      </div>
+      
+      <div>
+        <h4>Current Conditions</h4>
+        <div id="current-conditions">
+          <div class="temp"><span id="current-temp"></span></div>
+          <div class="daily-cond">
+            <img id="weather-img" alt="Weather Icon"/>
+            <span id="current-phrase"></span>
+          </div>
+          
+        </div>
+      </div>
+      
+      <div>
+        <h4>Today's Forecast</h4>
+        <ul id="forcast-items">
+
+          <li class="day-night">
+            <section class="day">
+              <p>Day Time Weather</p> 
+              <div class="day-cond">
+                <img id="day-img" alt="Day Icon"/>
+                <span id="day-phrase"></span>
+              </div>
+            </section>
+
+            <section class="night">
+              <p>Night Time Weather</p>
+              <div class="night-cond">
+                <img id="night-img" alt="Night Icon"/>
+                <span id="night-phrase"></span>
+              </div>
+            </section>
+          </li>
+
+          <li>High: <span id="temp-max"></span></li>
+          <li>Low: <span id="temp-min"></span></li>
+        </ul>
+        
+      </div>
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script type='text/javascript' src='config.js'></script>
+      <script src="main.js" async defer></script>
     </div>
 
-    <div>
-      <h4>Current Conditions:</h4>
-      <ul id="current-conditions">
-        <li><img id="weather-img" alt="Weather Icon"/></li>
-        <li><span id="current-phrase"></span></li>
-        <li><span id="current-temp"></span></li>
-      </ul>
-    </div>
-
-    <div>
-      <h4>Today's Forecast</h4>
-      <ul id="forcast-items">
-        <li>Day Time Weather: 
-          <img id="day-img" alt="Day Icon"/>
-          <span id="day-phrase"></span>
-        </li>
-        <li>Night Time Weather: 
-          <img id="night-img" alt="Night Icon"/>
-          <span id="night-phrase"></span>
-        </li>
-        <li>High: <span id="temp-max"></span></li>
-        <li>Low: <span id="temp-min"></span></li>
-      </ul>
-
-    </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type='text/javascript' src='config.js'></script>
-    <script src="main.js" async defer></script>
   </body>
 </html>
