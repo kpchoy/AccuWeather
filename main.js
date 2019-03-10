@@ -87,9 +87,24 @@ $(document).ready(function() {
       });
   }
 
-  var zip = '94066';
-  // getForcastLocation(zip);
+  function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  }
+
+  // Production 
+  // run with live server
+  var zip = getParameterByName("zip_code");
   getLocationKey(zip);
+
+  // Test parameters to try not to overload 50 calls
+  // var zip = '94066';
+  // getLocationKey(zip);
 });
 
 function iconLinkGen(iconNum) {
@@ -99,3 +114,4 @@ function iconLinkGen(iconNum) {
   return "https://apidev.accuweather.com/developers/Media/Default"
     + "/WeatherIcons/" + iconNum + "-s.png";
 }
+
