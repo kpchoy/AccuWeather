@@ -24,15 +24,24 @@
     <div>
       <p>Current Conditions:</p>
       <span id="current-conditions"></span>
-      <img id="weather-img" alt="Weather Icon">
+      <img id="weather-img" alt="Weather Icon"/>
     </div>
 
     <div>
       <p>Today's Forecast</p>
-      <div id="forcast-items">
-        <span id="today-date"></span>
-        <span id="todays-forcast"></span>
-      </div>
+      <ul id="forcast-items">
+        <li>Date: <span id="todays-date"></span></li> 
+        <li>Day Time Weather: 
+          <span id="day-phrase"></span>
+          <img id="day-img" alt="Day Icon"/>
+        </li>
+        <li>Night Time Weather: 
+          <span id="night-phrase"></span>
+          <img id="night-img" alt="Night Icon"/>
+        </li>
+        <li>High: <span id="temp-max"></span></li>
+        <li>Low: <span id="temp-min"></span></li>
+      </ul>
 
     </div>
 

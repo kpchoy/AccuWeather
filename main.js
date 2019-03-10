@@ -72,7 +72,13 @@ $(document).ready(function() {
         let tempMax = data.DailyForecasts[0].Temperature.Maximum.Value + " "
           + data.DailyForecasts[0].Temperature.Maximum.Unit;
  
-        $("#todays")
+        $("#todays-date").html(date);
+        $("#day-phrase").html(dayIconPhrase);
+        $("#day-img").attr("src", dayIcon);
+        $("#night-phrase").html(nightIconPhrase);
+        $("#night-img").attr("src", nightIcon);
+        $("#temp-min").html(tempMin);
+        $("#temp-max").html(tempMax);
 
       })
       .fail(function(textStatus, error) {
