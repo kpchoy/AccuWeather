@@ -27,6 +27,11 @@ ul {
   text-align: center;
 }
 
+.content {
+  width: 45%;
+  margin: auto;
+}
+
 #current-conditions {
   display: flex;
   height: 100px;
@@ -40,7 +45,7 @@ ul {
   vertical-align: top;
   display: inline-block;
   text-align: center;
-  width: 120px;
+  width: 110px;
 }
 
 .day-night {
@@ -52,7 +57,7 @@ ul {
   vertical-align: top;
   display: inline-block;
   text-align: center;
-  width: 120px;
+  width: 110px;
 }
 
 #day-phrase {
@@ -63,9 +68,14 @@ ul {
   vertical-align: top;
   display: inline-block;
   text-align: center;
-  width: 120px;
+  width: 110px;
 }
 
 #night-phrase {
   display: block;
+}
+
+.hi-lo {
+  width: 100px;
+  margin: auto;
 }
