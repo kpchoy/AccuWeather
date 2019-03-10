@@ -6,7 +6,7 @@ $(document).ready(function() {
     let link = "http://dataservice.accuweather.com/locations/v1/postalcodes/US"
       + "/search?apikey=" + secretKey + "&q=" 
       + zip + "&language=en-us&details=false";
-    console.log(link);
+    console.log("locationKey",link);
 
     $.getJSON(link)
       .done(function(data) {
@@ -15,9 +15,10 @@ $(document).ready(function() {
         let city = data[0].EnglishName;
         let html = city + ", " + state;
 
-        $("#cityName").html(html);
+        $("#city-name").html(html);
 
         getForcastLocation(locationKey);
+        getTodaysForcast(locationKey);
       })
       .fail(function( textStatus, error ) {
         var err = textStatus + ", " + error;
@@ -29,9 +30,7 @@ $(document).ready(function() {
   function getForcastLocation(zip) {
     let link = "http://dataservice.accuweather.com/currentconditions/v1/" 
       + zip + "?apikey=" + secretKey + "&language=en-us&details=false";
-
-   
-    console.log(link);
+    console.log("forcatlocation",link);
 
     $.getJSON(link)
       .done(function(data) {
@@ -40,24 +39,57 @@ $(document).ready(function() {
         var conditions = data[0];
         var temp = conditions.Temperature.Imperial;
         let html = conditions.WeatherText + ", " + temp.Value + " " + temp.Unit;
-        $("#currentConditions").html(html);
+        $("#current-conditions").html(html);
 
         let iconNum = data[0].WeatherIcon;
-        if (iconNum < 10) {
-          iconNum = "0" + iconNum;
-        }
-        let icon = "https://apidev.accuweather.com/developers/Media/Default"
-          + "/WeatherIcons/" + iconNum + "-s.png";
+        let icon = iconLinkGen(iconNum);
         $("#weather-img").attr("src", icon);
       })
       .fail(function(textStatus, error) {
         let html = "No info at this time";
-        $("#currentConditions").html(html);
+        $("#current-conditions").html(html);
       });
 
+  }
+
+  function getTodaysForcast(zip) {
+    let link = "http://dataservice.accuweather.com/forecasts/v1/daily/1day/"
+      + zip + "?apikey=" + secretKey + "&language=en-us&details=false";
+    console.log("todays forcast", link);
+
+    $.getJSON(link)
+      .done(function(data) {
+        // debugger;
+        let date = data.DailyForecasts[0].Date.substring(0,10);
+        let dayIconPhrase = data.DailyForecasts[0].Day.IconPhrase;
+        let dayIcon = iconLinkGen(data.DailyForecasts[0].Day.Icon);
+
+        let nightIconPhrase = data.DailyForecasts[0].Night.IconPhrase;
+        let nightIcon = iconLinkGen(data.DailyForecasts[0].Night.Icon);
+
+        let tempMin = data.DailyForecasts[0].Temperature.Minimum.Value + " "
+          + data.DailyForecasts[0].Temperature.Minimum.Unit;
+        let tempMax = data.DailyForecasts[0].Temperature.Maximum.Value + " "
+          + data.DailyForecasts[0].Temperature.Maximum.Unit;
+ 
+        $("#todays")
+
+      })
+      .fail(function(textStatus, error) {
+        let html = "No info at this time";
+        $("#forcast-items").html(html);
+      });
   }
 
   var zip = '94066';
   // getForcastLocation(zip);
   getLocationKey(zip);
 });
+
+function iconLinkGen(iconNum) {
+  if (iconNum < 10) {
+    iconNum = "0" + iconNum;
+  }
+  return "https://apidev.accuweather.com/developers/Media/Default"
+    + "/WeatherIcons/" + iconNum + "-s.png";
+}

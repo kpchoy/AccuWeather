@@ -15,17 +15,27 @@
     <h1>Movable Ink: Weather App</h1>
 
     <h2>Local Weather Forcast</h2>
+
     <div> 
       <p>Location:</p>
-      <span id="cityName"></span>
+      <span id="city-name"></span>
     </div>
 
     <div>
       <p>Current Conditions:</p>
-      <span id="currentConditions"></span>
+      <span id="current-conditions"></span>
+      <img id="weather-img" alt="Weather Icon">
     </div>
-    <img id="weather-img" alt="Weather Icon">
-    
+
+    <div>
+      <p>Today's Forecast</p>
+      <div id="forcast-items">
+        <span id="today-date"></span>
+        <span id="todays-forcast"></span>
+      </div>
+
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type='text/javascript' src='config.js'></script>
     <script src="main.js" async defer></script>
