@@ -6,11 +6,15 @@ $(document).ready(function() {
     let link = "http://dataservice.accuweather.com/locations/v1/postalcodes/US"
       + "/search?apikey=" + secretKey + "&q=" 
       + zip + "&language=en-us&details=false";
-    console.log("locationKey",link);
+    // console.log("locationKey",link);
 
     $.getJSON(link)
       .done(function(data) {
-        // debugger;
+
+        if (typeof data[0] === "undefined") {
+          $("#main").html("");
+        }
+
         let locationKey = data[0].Key;
         let state = data[0].AdministrativeArea.EnglishName;
         let city = data[0].EnglishName;
@@ -21,9 +25,8 @@ $(document).ready(function() {
         getForcastLocation(locationKey);
         getTodaysForcast(locationKey);
       })
-      .fail(function( textStatus, error ) {
-        var err = textStatus + ", " + error;
-        console.log( "Request Failed: " + err );
+      .fail(function( ) {
+        $("#main").html("");
       });
   }
 
@@ -31,12 +34,10 @@ $(document).ready(function() {
   function getForcastLocation(zip) {
     let link = "http://dataservice.accuweather.com/currentconditions/v1/" 
       + zip + "?apikey=" + secretKey + "&language=en-us&details=false";
-    console.log("forcatlocation",link);
+    // console.log("forcatlocation",link);
 
     $.getJSON(link)
       .done(function(data) {
-      // console.log(data);
-        //  debugger
         var conditions = data[0];
         var temp = conditions.Temperature.Imperial.Value + " " 
           + conditions.Temperature.Imperial.Unit;
@@ -50,9 +51,7 @@ $(document).ready(function() {
         
       })
       .fail(function(textStatus, error) {
-        let html = "No info at this time";
-       
-        $("#current-conditions").html(html);
+        $("#main").html("");
       });
 
   }
@@ -64,7 +63,6 @@ $(document).ready(function() {
 
     $.getJSON(link)
       .done(function(data) {
-        // debugger;
         let date = data.DailyForecasts[0].Date.substring(0,10);
         let dayIconPhrase = data.DailyForecasts[0].Day.IconPhrase;
         let dayIcon = iconLinkGen(data.DailyForecasts[0].Day.Icon);
@@ -87,8 +85,7 @@ $(document).ready(function() {
 
       })
       .fail(function(textStatus, error) {
-        let html = "No info at this time";
-        $("#forcast-items").html(html);
+        $("#main").html("");
       });
   }
 
@@ -104,12 +101,12 @@ $(document).ready(function() {
 
   // Production 
   // run with live server
-  // var zip = getParameterByName("zip_code");
-  // getLocationKey(zip);
+  var zip = getParameterByName("zip_code");
+  getLocationKey(zip);
 
   // Test parameters to try not to overload 50 calls
-  var zip = '94016';
-  getLocationKey(zip);
+  // var zip = '94016';
+  // getLocationKey(zip);
 });
 
 function iconLinkGen(iconNum) {
