@@ -41,6 +41,16 @@ ul {
   font-size: 40px;
 }
 
+.day {
+  text-align: center;
+  font-size: 15px;
+}
+
+.night {
+  text-align: center;
+  font-size: 15px;
+}
+
 .daily-cond {
   vertical-align: top;
   display: inline-block;
@@ -50,7 +60,7 @@ ul {
 
 .day-night {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .day-cond {
@@ -76,6 +86,14 @@ ul {
 }
 
 .hi-lo {
-  width: 100px;
+  width: 60px;
+  text-align: center;
   margin: auto;
+  font-size: 15px;
 }
+
+.hi-lo-txt {
+  border-bottom: solid 1px;
+  padding-bottom: 10px;
+}
+

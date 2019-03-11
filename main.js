@@ -101,12 +101,12 @@ $(document).ready(function() {
 
   // Production 
   // run with live server
-  var zip = getParameterByName("zip_code");
-  getLocationKey(zip);
+  // var zip = getParameterByName("zip_code");
+  // getLocationKey(zip);
 
   // Test parameters to try not to overload 50 calls
-  // var zip = '94016';
-  // getLocationKey(zip);
+  var zip = '94016';
+  getLocationKey(zip);
 });
 
 function iconLinkGen(iconNum) {
