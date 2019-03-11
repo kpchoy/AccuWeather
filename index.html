@@ -13,63 +13,34 @@
   </head>
   <body>
     <div id="main" class="main">
-      <h1>Movable Ink: Weather App</h1>
-      <div class="border-line"></div>
-   
-      <p>This app employs AccuWeather's API</p>
+      <h1>WEATHER FORCAST FOR <span id="city-name"></span></h1>
 
       <section class="content">
-
-        <div> 
-          <h2>Local Weather Forecast</h2>
-          <p>Date: <span id="todays-date"></span></p> 
-          <p>Location: <span id="city-name"></span></p>
-          
-        </div>
-        
-        <div>
-          <h4>Current Conditions</h4>
-          <div id="current-conditions">
-            <div class="temp"><span id="current-temp"></span></div>
-            <div class="daily-cond">
-              <img id="weather-img" alt="Weather Icon"/>
-              <span id="current-phrase"></span>
+        <div class="today">
+          <h4>Today:</h4>
+            <div class="day-cond">
+              <img id="day-img" alt="Day Icon"/>
+              <span id="day-phrase"></span>
             </div>
-          </div>
+            <p><span id="temp-max"></span> / <span id="temp-min"></span> &deg F</p>
         </div>
         
-        <div>
-          <h4>Today's Forecast</h4>
-          <ul id="forcast-items">
-            
-            <li class="day-night">
-              <section class="day">
-                <p>Day Time</p> 
-                <div class="day-cond">
-                  <img id="day-img" alt="Day Icon"/>
-                  <span id="day-phrase"></span>
-                </div>
-              </section>
-              
-              <section class="night">
-                <p>Night Time</p>
-                <div class="night-cond">
-                  <img id="night-img" alt="Night Icon"/>
-                  <span id="night-phrase"></span>
-                </div>
-              </section>
-            </li>
-            
-            <li class="hi-lo">
-              <p class="hi-lo-txt">High</p> 
-              <span id="temp-max"></span>
-            </li>
-            <li class="hi-lo">
-              <p class="hi-lo-txt">Low</p> 
-              <span id="temp-min"></span>
-            </li>
-          </ul>
-          
+        <div class="day-2">
+          <h4><span id="day2-day"></span></h4>
+            <div class="day-cond">
+              <img id="day2-img" alt="Day2 Icon"/>
+              <span id="day2-phrase"></span>
+            </div>
+            <p><span id="day2-temp-max"></span> / <span id="day2-temp-min"></span> &deg F</p>
+        </div>
+
+        <div class="day-3">
+          <h4><span id="day3-day"></span></h4>
+            <div class="day-cond">
+              <img id="day3-img" alt="Day3 Icon"/>
+              <span id="day3-phrase"></span>
+            </div>
+            <p><span id="day3-temp-max"></span> / <span id="day3-temp-min"></span> &deg F</p>
         </div>
       </section>
         

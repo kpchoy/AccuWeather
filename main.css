@@ -7,7 +7,7 @@ ul {
 }
 
 .main {
-  width: 50%;
+  width: 80%;
   margin: auto;
 }
 
@@ -16,84 +16,4 @@ ul {
   margin-bottom: 10px;
 }
 
-.border-line {
-  display: block;
-  margin: 0 auto;
-  border-bottom: 1px solid black;
-  width: 50%;
-}
-
-.main > p {
-  text-align: center;
-}
-
-.content {
-  width: 45%;
-  margin: auto;
-}
-
-#current-conditions {
-  display: flex;
-  height: 100px;
-}
-
-.temp {
-  font-size: 40px;
-}
-
-.day {
-  text-align: center;
-  font-size: 15px;
-}
-
-.night {
-  text-align: center;
-  font-size: 15px;
-}
-
-.daily-cond {
-  vertical-align: top;
-  display: inline-block;
-  text-align: center;
-  width: 110px;
-}
-
-.day-night {
-  display: flex;
-  justify-content: space-between;
-}
-
-.day-cond {
-  vertical-align: top;
-  display: inline-block;
-  text-align: center;
-  width: 110px;
-}
-
-#day-phrase {
-  display: block;
-}
-
-.night-cond {
-  vertical-align: top;
-  display: inline-block;
-  text-align: center;
-  width: 110px;
-}
-
-#night-phrase {
-  display: block;
-}
-
-.hi-lo {
-  width: 60px;
-  text-align: center;
-  margin: auto;
-  font-size: 15px;
-}
-
-.hi-lo-txt {
-  border-bottom: solid 1px;
-  padding-bottom: 10px;
-}
 
