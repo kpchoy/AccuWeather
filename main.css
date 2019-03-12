@@ -6,14 +6,68 @@ ul {
   list-style-type: none;
 }
 
-.main {
-  width: 80%;
-  margin: auto;
-}
-
-.main > h1 {
+.title {
   text-align: center;
-  margin-bottom: 10px;
+  margin: 50px auto 100px auto; 
+  position: relative;
+  width: 900px;
+  height: 50px; 
 }
 
+.title h1 {
+  font-size: 40px;
+  font-weight: 100;
+  color: #696969;
+}
 
+.line {
+  border-bottom: 3px solid orange;
+  width: 40px;
+  position: absolute;
+  top: 15px;
+  right: 0px;
+}
+
+.content {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.day {
+  width: 350px;
+  height: 150px;
+}
+
+.day-head {
+  height: 50px;
+  color: white;
+  font-size: 30px;
+  background: #4682B4;
+  display: flex;
+  align-items: center;
+}
+
+.day-head > h4 {
+  margin-left: 20px;
+}
+
+.day-cond {
+  margin-top: 20px;
+  margin-left: -10px;
+  display: flex;
+  height: 100px;
+}
+
+.day-words {
+  font-size: 20px;
+}
+
+#day-img {
+  width: auto;
+  height: 70px;
+}
+
+#temp-max {
+  font-weight: 600;
+}

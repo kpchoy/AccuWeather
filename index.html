@@ -13,20 +13,30 @@
   </head>
   <body>
     <div id="main" class="main">
-      <h1>WEATHER FORCAST FOR <span id="city-name"></span></h1>
+      <div class="title">
+        <h1>WEATHER FORCAST FOR <span id="city-name"></span> </h1>
+        <hr class="line">
+      </div>
 
       <section class="content">
-        <div class="today">
-          <h4>Today:</h4>
-            <div class="day-cond">
-              <img id="day-img" alt="Day Icon"/>
+        <div class="day">
+          <section class="day-head">
+            <h4>Today:</h4>
+          </section>
+          <section class="day-cond">
+            <img id="day-img" alt="Day Icon"/>
+            <div class="day-words">
               <span id="day-phrase"></span>
+              <p><span id="temp-max"></span> / <span id="temp-min"></span> &deg F</p>
             </div>
-            <p><span id="temp-max"></span> / <span id="temp-min"></span> &deg F</p>
+          </section>
         </div>
-        
-        <div class="day-2">
-          <h4><span id="day2-day"></span></h4>
+
+        <div class="day">
+          <section class="day-head">
+            <h4><span id="day2-day"></span>:</h4>
+          </section>
+    
             <div class="day-cond">
               <img id="day2-img" alt="Day2 Icon"/>
               <span id="day2-phrase"></span>
@@ -34,8 +44,11 @@
             <p><span id="day2-temp-max"></span> / <span id="day2-temp-min"></span> &deg F</p>
         </div>
 
-        <div class="day-3">
-          <h4><span id="day3-day"></span></h4>
+        <div class="day">
+          <section class="day-head">
+            <h4><span id="day3-day"></span>:</h4>
+          </section>
+
             <div class="day-cond">
               <img id="day3-img" alt="Day3 Icon"/>
               <span id="day3-phrase"></span>
