@@ -32,7 +32,7 @@ $(document).ready(function() {
   function get5DayForecast(zip) {
     let link = "http://dataservice.accuweather.com/forecasts/v1/daily/5day/"
     + zip + "?apikey=" + secretKey + "&language=en-us&details=false&metric=false";
-    console.log("5 Day forcast", link);
+    // console.log("5 Day forcast", link);
     
     $.getJSON(link)
       .done(function(data) {
@@ -89,12 +89,12 @@ $(document).ready(function() {
 
   // Production 
   // run with live server
-  // var zip = getParameterByName("zip_code");
-  // getLocationKey(zip);
+  var zip = getParameterByName("zip_code");
+  getLocationKey(zip);
 
   // Test parameters to try not to overload 50 calls
-  var zip = '94125';
-  getLocationKey(zip);
+  // var zip = '94125';
+  // getLocationKey(zip);
 });
 
 var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
