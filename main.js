@@ -93,7 +93,7 @@ $(document).ready(function() {
   // getLocationKey(zip);
 
   // Test parameters to try not to overload 50 calls
-  var zip = '94016';
+  var zip = '94125';
   getLocationKey(zip);
 });
 
