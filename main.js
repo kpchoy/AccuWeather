@@ -37,9 +37,7 @@ $(document).ready(function() {
     $.getJSON(link)
       .done(function(data) {
         let today = new Date(data.DailyForecasts[0].Date);
-
         let diff = dateDiff(today, date);
-        console.log(diff);
 
         if (diff === 0) {
           $("#day1-day").html("Today");
@@ -110,13 +108,14 @@ $(document).ready(function() {
 
   // Production 
   // run with live server
-  // var zip = getParameterByName("zip_code");
-  // getLocationKey(zip);
+  var zip = getParameterByName("zip_code");
+  var date = new Date(getParameterByName("date"));
+  getLocationKey(zip, date);
 
   // Test parameters to try not to overload 50 calls
-  var zip = '94125';
-  var date = new Date("3/17/19");
-  getLocationKey(zip, date);
+  // var zip = '94125';
+  // var date = new Date("3/13/19");
+  // getLocationKey(zip, date);
 });
 
 var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
