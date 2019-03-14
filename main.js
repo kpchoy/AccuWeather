@@ -39,11 +39,15 @@ $(document).ready(function() {
         let today = new Date(data.DailyForecasts[0].Date);
 
         let diff = dateDiff(today, date);
+        console.log(diff);
 
-        // let day1;
-        // if (diff !== 0) {
-        //   $("#day1-day").html()
-        // }
+        if (diff === 0) {
+          $("#day1-day").html("Today");
+        } else {
+          let date1 = new Date(data.DailyForecasts[0+diff].Date);
+          let date2Name = days[date1.getDay()];
+          $("#day1-day").html(date2Name);
+        }
 
         let dayIconPhrase = data.DailyForecasts[0+diff].Day.IconPhrase;
         let dayIcon = iconLinkGen(data.DailyForecasts[0+diff].Day.Icon);
@@ -55,30 +59,37 @@ $(document).ready(function() {
         $("#temp-min").html(tempMin);
         $("#temp-max").html(tempMax);
 
-        let date2 = new Date(data.DailyForecasts[1+diff].Date);
-        let date2Name = days[date2.getDay()];
-        let day2IconPhrase = data.DailyForecasts[1+diff].Day.IconPhrase;
-        let day2Icon = iconLinkGen(data.DailyForecasts[1+diff].Day.Icon);
-        let temp2Min = data.DailyForecasts[1+diff].Temperature.Minimum.Value;
-        let temp2Max = data.DailyForecasts[1+diff].Temperature.Maximum.Value;
-        $("#day2-day").html(date2Name);
-        $("#day2-phrase").html(day2IconPhrase);
-        $("#day2-img").attr("src", day2Icon);
-        $("#day2-temp-min").html(temp2Min);
-        $("#day2-temp-max").html(temp2Max);
+        if (diff >= 4) {
+          $("#d2").html("");
+        } else {
+          let date2 = new Date(data.DailyForecasts[1+diff].Date);
+          let date2Name = days[date2.getDay()];
+          let day2IconPhrase = data.DailyForecasts[1+diff].Day.IconPhrase;
+          let day2Icon = iconLinkGen(data.DailyForecasts[1+diff].Day.Icon);
+          let temp2Min = data.DailyForecasts[1+diff].Temperature.Minimum.Value;
+          let temp2Max = data.DailyForecasts[1+diff].Temperature.Maximum.Value;
+          $("#day2-day").html(date2Name);
+          $("#day2-phrase").html(day2IconPhrase);
+          $("#day2-img").attr("src", day2Icon);
+          $("#day2-temp-min").html(temp2Min);
+          $("#day2-temp-max").html(temp2Max);
+        }
 
-        let date3 = new Date(data.DailyForecasts[2+diff].Date);
-        let date3Name = days[date3.getDay()];
-        let day3IconPhrase = data.DailyForecasts[2+diff].Day.IconPhrase;
-        let day3Icon = iconLinkGen(data.DailyForecasts[2+diff].Day.Icon);
-        let temp3Min = data.DailyForecasts[2+diff].Temperature.Minimum.Value;
-        let temp3Max = data.DailyForecasts[2+diff].Temperature.Maximum.Value;
-        $("#day3-day").html(date3Name);
-        $("#day3-phrase").html(day3IconPhrase);
-        $("#day3-img").attr("src", day3Icon);
-        $("#day3-temp-min").html(temp3Min);
-        $("#day3-temp-max").html(temp3Max);
-
+        if (diff >= 3) {
+          $("#d3").html("");
+        } else {
+          let date3 = new Date(data.DailyForecasts[2+diff].Date);
+          let date3Name = days[date3.getDay()];
+          let day3IconPhrase = data.DailyForecasts[2+diff].Day.IconPhrase;
+          let day3Icon = iconLinkGen(data.DailyForecasts[2+diff].Day.Icon);
+          let temp3Min = data.DailyForecasts[2+diff].Temperature.Minimum.Value;
+          let temp3Max = data.DailyForecasts[2+diff].Temperature.Maximum.Value;
+          $("#day3-day").html(date3Name);
+          $("#day3-phrase").html(day3IconPhrase);
+          $("#day3-img").attr("src", day3Icon);
+          $("#day3-temp-min").html(temp3Min);
+          $("#day3-temp-max").html(temp3Max);
+        }
         
       })
       .fail(function(textStatus, error) {
@@ -104,7 +115,7 @@ $(document).ready(function() {
 
   // Test parameters to try not to overload 50 calls
   var zip = '94125';
-  var date = new Date("3/13/19");
+  var date = new Date("3/17/19");
   getLocationKey(zip, date);
 });
 
